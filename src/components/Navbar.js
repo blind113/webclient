@@ -8,7 +8,7 @@ import AppBar from '@material-ui/core/AppBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

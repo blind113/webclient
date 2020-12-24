@@ -14,10 +14,15 @@ import {  useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(theme =>
     createStyles({
-      menuItem: {},
+      menuItem: {
+        
+      },
       menuItemIcon: {
         color: '#97c05c',
       },
+      subMenuItem: {
+        paddingLeft: theme.spacing(2),
+      }
     }),
   )
 
@@ -33,7 +38,7 @@ function MenuItem(props){
     }
     
   const MenuItemRoot = (
-    <ListItem button className={classes.menuItem} onClick={handleClick} >
+    <ListItem button className={classes.Item} onClick={handleClick} >
       <ListItemIcon    ><FontAwesomeIcon icon={Icon} /></ListItemIcon>
       <ListItemText primary = {name}/>
       {isExpandable && !open && <IconExpandMore />}
@@ -44,7 +49,7 @@ function MenuItem(props){
   const MenuItemChildren = isExpandable ? (
     <Collapse in={open} timeout="auto" unmountOnExit>
       <Divider />
-      <List component="div" disablePadding>
+      <List component="div" disablePadding className= {classes.subMenuItem}>
         {items.map((item, index) => (
           <MenuItem {...item} key={index} />
         ))}

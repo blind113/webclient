@@ -9,13 +9,34 @@ import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {  useNavigate } from 'react-router-dom';
-
 import { faFolder } from '@fortawesome/free-solid-svg-icons/faFolder';
-import { faBusinessTime, faCalendarTimes, faChartLine, faCogs, faList, faUserClock, faUserCog,faHourglassEnd } from '@fortawesome/free-solid-svg-icons';
+import { faBusinessTime,
+  faCalendarTimes,
+  faChartLine,
+  faCogs, 
+  faList, 
+  faUserClock, 
+  faPeopleCarry,
+  faUserCog,
+  faHourglassEnd, 
+  faUserFriends, 
+  faGlobe, 
+  faBell, 
+  faHistory, 
+  faChalkboardTeacher, 
+  faStopwatch, 
+  faChartBar,
+  faUser,
+  faCalendar,  
+  faCalendarMinus,
+  faSitemap,
+  faIdCard,
+  faFileInvoiceDollar
+  } from '@fortawesome/free-solid-svg-icons';
 import MenuItem from './MenuItem';
 
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
@@ -70,38 +91,92 @@ const menus = [{
       },{
         name: 'Troca De Horário',
         Icon: faUserClock,
-        link:  '/Pedidos/trocaHorario',
+        link:  '/trocaHorario',
       }, {
         name: 'Troca De Escala',
         Icon: faHourglassEnd,
-        link: '/Pedidos/trocaHorario',
+        link: '/trocaHorario',
       },{
         name: 'Troca De Equipe',
         Icon: faUserCog,
-        link: '/Pedidos/trocaHorario'
+        link: '/trocaHorario'
       }
     ]
 },{
     name: 'Planejamento',
     Icon: faChartLine,
-    link: '/'
+    items: [{
+        name:'Equipe',
+        Icon: faUser, 
+        items:[{
+            name: 'Dimensionamento',
+            Icon: faUserFriends,
+            link: '/dimensionamento',
+          },{
+            name: 'Alocação Fisica',
+            Icon: faGlobe,
+            link: '/alocacaoFisica'
+          },{
+            name: 'Alocação por Skill',
+            Icon: faPeopleCarry,
+            link: '/alocacaoSkill'
+          }]
+      },{
+        name: 'Plano De Férias',
+        Icon: faCalendar,
+        items: [{
+            name: 'Por Skills',
+            Icon: faBell,
+            link: '/porSkill'
+        },{
+            name: 'Por Antiguidade',
+            Icon: faHistory,
+            link: '/antiguidade'
+        }]
+      },{
+        name: 'Treinamentos',
+        Icon: faChalkboardTeacher,
+        items:[{
+            name: 'Turnos',
+            Icon: faStopwatch,
+            link: '/Turno'
+          },{
+            name: 'Aderencia',
+            Icon: faChartBar,
+            link: '/aderencia'
+          }]
+      }]
 }, {
     name: 'Documentos',
     Icon: faFolder,
-    link: '/perfil'
+    link: '/documentos'
 },{
     name: 'Configurações',
     Icon: faCogs,
     items: [
       {
-        name: 'Level 3',
-        Icon: faFolder,
+        name: 'Feriados',
+        Icon: faCalendarMinus,
+        link: '/feriadosConfig'
       },
       {
-        name: 'Level 3',
-        Icon: faFolder,
+        name: 'Usuários',
+        Icon: faUserCog,
+        item:[{
+            name: 'Acessos',
+            Icon: faSitemap,
+            link: '/acessosConfig'
+        },{
+            name: 'Cadastro',
+            Icon: faIdCard,
+            link: '/cadastro'
+        }]
       },
     ],
+},{
+  name: 'Faturamento', 
+  Icon: faFileInvoiceDollar,
+  link: '/faturamento'
 }
 ]
 
